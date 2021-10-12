@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Nông trại </title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <style>
+    .margin-top-1 {
+      margin-top: 1em;
+    }
+
+    a {
+      color: #339900;
+      text-decoration: none
+    }
+
+    a:focus,
+    a:hover {
+      color: #339900;
+      text-decoration: underline
+    }
+  </style>
+</head>
+
+<body class="container" style="width:1600px;">
+  <h2 style="text-align:center">Truy xuất nguồn gốc - Nhà cung cấp(Nông Trại) </h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#sectionA" id="home_tab"><i class="fa fa-university"></i> Đăng kí Nguyên liệu</a>
+    </li>
+    <li><a data-toggle="tab" href="#sectionB" id="product_tab"><i class="fa fa-user"></i> Thêm lô hàng</a></li>
+    <li><a data-toggle="tab" href="#sectionC" id="account_tab"><i class="fa fa-user"></i> Thông tin chuyển giao</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="sectionA" class="tab-pane fade in active">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Danh sách nguyên liệu của nông trại </h3>
+        </div>
+        <div class="panel-body">
+          <div style="height: 200px;overflow:scroll;">
+            <table class="table table-striped">
+              <tr>
+                <th>STT</th>
+                <th>Tên Nguyên liệu </th>
+                <th> Code Nguyên liệu </th>
+                <th>Tên Nông trại </th>
+                <th>Địa chỉ lô nguyên liệu </th>
+                <th>Thơi gian</th>
+              </tr>
+              <tbody id="registerListA">
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Đăng kí nguyên liệu</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <td>Tên Nguyên liệu :</td>
+                <td>
+                  <input type="text" class="form-control" id="nameMaterialA" placeholder="material name">
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td> Code Nguyên liệu:</td>
+                <td>
+                  <input type="text" class="form-control" id="codeMaterialA" placeholder="material code">
+                </td>
+                <td> Tên nông trại:</td>
+                <td>
+                  <input type="text" class="form-control" id="farmMaterialA" placeholder="farm">
+                </td>
+              </tr>
+              
+                <td colspan="2" style="text-align:center">
+                  <button id="registerMaterialBtnA" class="btn btn-success">Đăng kí Nguyên Liệu</button>
+                </td>
+                <tr>
+                  <td>TransactionID:</td>
+                  <td id="transactionIDA"></td>
+                </tr>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="sectionB" class="tab-pane fade">
+      <div class="panel panel-success margin-top-1">
+        <div class="panel-heading">
+          <h3 class="panel-title">Nhập code nguyên liệu </h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <tbody>
+
+              <tr>
+                <td> Mã Nguyên Liệu :</td>
+                <td>
+                  <input type="text" class="form-control" id="materialCodeB" placeholder="product code">
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="text-align:center">
+                  <button id="checkBatchMaterialB" class="btn btn-success">Kiểm tra danh sách Lô hàng</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title"> Danh sách Lô hàng</h3>
+        </div>
+        <div class="panel-body">
+          <div style="height: 200px;overflow:scroll;">
+            <table class="table table-striped">
+              
+              <tr>
+                <th>STT</th>
+                <th>Lô hàng số</th>
+                <th>Nguyên liệu lô hàng</th>
+                <th> Nông trại  </th>
+                <th> Checklist </th>
+                <th>Hợp đồng chuyển giao</th>
+                <th> Ngày </th>
+              </tr>
+              <tbody id="batchListB">
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Thêm lô hàng</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <td> Tên Lô Nguyên Liệu  :</td>
+                <td>
+                  <input type="text" class="form-control" id="materialBatchB" placeholder="Tên Lô Nguyên liệu">
+                </td>
+              </tr>
+              <tr>
+                <td>Mã Nguyên Liệu </td>
+                <td>
+                  <input type="text" class="form-control" id="materialCodeCheckB" placeholder="Mã Nguyên liệu">
+                </td>
+              </tr>
+              <tr>
+                <td>Link Checklist Lô hàng </td>
+                <td>
+                  <input type="text" class="form-control" id="materialCheckListB" placeholder="Checklist nguyên liệu">
+                </td>
+              </tr>
+              <tr>
+                <td>Khối lượng</td>
+                <td>
+                  <input type="text" class="form-control" id="materialWeightB" placeholder="Khối lượng">
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="text-align:center">
+                  <button id="addBatchMaterialB" class="btn btn-success">Thêm</button>
+                </td>
+                <tr>
+                  <td>TransactionID:</td>
+                  <td id="transactionIDB"></td>
+                </tr>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="sectionC" class="tab-pane fade">
+      <div class="panel panel-success margin-top-1">
+        <div class="panel-heading">
+          <h3 class="panel-title">Kiểm tra giao dịch </h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <tbody>
+
+              <tr>
+                <td>Mã nguyên liệu:</td>
+                <td>
+                  <input type="text" class="form-control" id="materialCodeC" placeholder="Mã Nguyên Liệu">
+                </td>
+              </tr>
+              <tr>
+                <td>Tên Lô Nguyên liệu:</td>
+                <td>
+                  <input type="text" class="form-control" id="materialBatchC" placeholder="Tên lô nguyên liệu">
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="text-align:center">
+                  <button id="checkTransactionC" class="btn btn-success">OK</button>
+                </td>
+              </tr>
+              <tr>
+                <td>TUC Address:</td>
+                <td id="batchAddressC"></td>
+              </tr>
+              <tr>
+                <td>Tên đơn vị chế biến </td>
+                <td id="manufactureNameC"></td>
+              </tr>
+              <tr>
+                <td>Ngày chuyển giao lô nguyên liệu:</td>
+                <td id="timeTransactionC"></td>
+              </tr>
+              <tr>
+                <td>Transaction truy vết chuyển giao:</td>
+                <td id="transactionHashC"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Cập nhật giao dịch </h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <td>Mã nguyên liệu </td>
+                <td>
+                  <input type="text" class="form-control" id="materialCodeCheckC" placeholder="Mã Nguyên Liệu">
+                </td>
+              </tr>
+              <tr>
+                <td>Tên Lô Nguyên Liệu </td>
+                <td>
+                  <input type="text" class="form-control" id="materialBatchCheckC" placeholder="Tên Lô Nguyên liệu">
+                </td>
+              </tr>
+              <tr>
+                <td>Tên nhà máy :</td>
+                <td>
+                  <input type="text" class="form-control" id="manufactureC" placeholder="Đơn vị chế biến">
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="text-align:center">
+                  <button id="updateTransactionC" class="btn btn-success">Giao dịch </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="supplier.js">
+</script>
+
+</html>
